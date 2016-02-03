@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  resources :clients
+  get 'wiki_pages/home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'wiki_pages#home'
+  get 'new_client' => 'clients#new'
+  get 'view_clients' => 'clients#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
