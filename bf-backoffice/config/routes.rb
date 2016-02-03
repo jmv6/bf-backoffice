@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
+  get 'products/life'
+
+  get 'products/lifetrust'
+
+  get 'products/estateplanning'
+
+  resources :products
   devise_for :users
   resources :clients
   get 'wiki_pages/home'
@@ -10,6 +19,8 @@ Rails.application.routes.draw do
   root 'wiki_pages#home'
   get 'new_client' => 'clients#new'
   get 'view_clients' => 'clients#index'
+  get 'products' => 'products#index'
+  get 'lifetrust' => 'products#lifetrust'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -57,6 +68,5 @@ Rails.application.routes.draw do
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  #     #   end
 end

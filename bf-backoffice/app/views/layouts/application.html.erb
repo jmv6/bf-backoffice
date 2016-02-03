@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BfBackofficeApp</title>
+  <title>BuchananFraser Back Office</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,34 +12,27 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-            <li><%= link_to('Home', root_path )%>
-		    <li><%= link_to('Add New Client', new_client_path )%></li>
-		    <li><%= link_to('View Clients', view_clients_path )%></li>
-		    <li>
-			<%= link_to('Change My Account Details', '/users/edit') %></li> 
+            <li><%= link_to('Home', root_path )%></li>
+            <li><%= link_to('Products', products_path )%></li>
+		        <li><%= link_to('Add New Client', new_client_path )%></li>
+		        <li><%= link_to('View Clients', view_clients_path )%></li>
+		        <li><%= link_to('Change My Account Details', '/users/edit') %></li> 
 
-		    <li>
-		 	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-			  </li>
-			<% else %>
-			  <li>
-			  <%= link_to('Login', new_user_session_path)  %>  
-			  </li>
-			<% end %>
-
+		        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+			      <% else %>
+			       <li><%= link_to('Login', new_user_session_path)  %></li>
+			      <% end %>
           </ul>
         </nav>
       </div>
     </header>
-	<p class="notice"><%= notice %></p>
+	  <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
     <div class="container">
-    	<% if current_user.admin %>
-    	<p>GOD MODE ACTIVATED</p>
-    	<% end %>
-		<%= yield %>
-	</div>
+    	
+		  <%= yield %>
+	  </div>
 
 </body>
 </html>
